@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nama Anda — Security Engineer</title>
+  <meta name="description" content="Portofolio Security Engineer: AppSec, Pentest, Threat Modeling, Cloud Security, DFIR." />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E">
+
+  <style>
+    :root {
+      --bg: #0b0c0e;
+      --card: #121317;
+      --text: #e7e9ee;
+      --muted: #9aa0aa;
+      --accent: #7cc5ff;
+      --ok: #4cd964;
+      --warn: #ffcc00;
+      --bad: #ff453a;
+      --ring: #2a2f3a;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --card: #f6f7f9;
+        --text: #0b0c0e;
+        --muted: #5d6672;
+        --accent: #0b84ff;
+        --ring: #e6e8eb;
+      }
+    }
+    html, body {
+      padding: 0; margin: 0; background: var(--bg); color: var(--text);
+      font: 15px/1.6 ui-sans-serif, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    .container { max-width: 960px; margin: 0 auto; padding: 32px 20px 64px; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 32px; }
+    nav a {
+      color: var(--muted); text-decoration: none; margin: 0 8px; padding: 6px 8px; border-radius: 8px;
+    }
+    nav a:hover, nav a:focus { color: var(--text); background: var(--card); outline: 1px solid var(--ring); }
+    .theme-toggle {
+      appearance: none; border: 1px solid var(--ring); background: transparent; color: var(--muted);
+      padding: 6px 10px; border-radius: 10px; cursor: pointer;
+    }
+    .theme-toggle:hover { color: var(--text); border-color: var(--muted); }
+    .hero {
+      display: grid; grid-template-columns: 96px 1fr auto; gap: 20px; align-items: center; margin: 12px 0 24px;
+    }
+    .avatar {
+      width: 96px; height: 96px; border-radius: 50%; background: var(--card);
+      background-image: radial-gradient(100% 100% at 70% 20%, rgba(255,255,255,0.15), rgba(0,0,0,0.15)),
+                        linear-gradient(135deg, #3b82f6, #06b6d4);
+      border: 1px solid var(--ring);
+    }
+    .hero h1 { margin: 0; font-size: 28px; letter-spacing: 0.2px; }
+    .hero .subtitle { color: var(--muted); margin-top: 6px; }
+    .cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--ring); color: var(--text);
+      background: transparent; padding: 8px 12px; border-radius: 12px; text-decoration: none; font-weight: 500;
+    }
+    .btn:hover { border-color: var(--muted); }
+    .grid { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
+    .card {
+      grid-column: span 12; background: var(--card); border: 1px solid var(--ring); border-radius: 14px; padding: 16px 16px;
+    }
+    .card h3 { margin: 0 0 10px; font-size: 16px; letter-spacing: 0.2px; }
+    .muted { color: var(--muted); }
+    .list { display: grid; gap: 10px; }
+    .badge-row { display: flex; gap: 8px; flex-wrap: wrap; }
+    .badge {
+      border: 1px solid var(--ring); color: var(--muted); padding: 6px 10px; border-radius: 999px; font-size: 13px;
+      background: transparent;
+    }
+    .project {
+      display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: start; padding: 10px 0; border-top: 1px dashed var(--ring);
+    }
+    .project:first-child { border-top: 0; }
+    .project a { color: var(--accent); text-decoration: none; }
+    .project a:hover { text-decoration: underline; }
+    .kpi { display: flex; gap: 14px; flex-wrap: wrap; }
+    .kpi .pill { font-variant-numeric: tabular-nums; border: 1px solid var(--ring); padding: 6px 10px; border-radius: 999px; }
+    footer { margin-top: 24px; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    section { margin: 18px 0; }
+    hr.sep { border: none; height: 1px; background: var(--ring); margin: 24px 0; }
+    .two-col { display: grid; gap: 16px; grid-template-columns: repeat(12, 1fr); }
+    .two-col > .left { grid-column: span 7; }
+    .two-col > .right { grid-column: span 5; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 72px 1fr; }
+      .two-col > .left, .two-col > .right { grid-column: span 12; }
+    }
+    /* focus */
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 8px; }
+    /* print minimal */
+    @media print {
+      header, .theme-toggle, nav, .cta { display: none !important; }
+      .card { border: 1px solid #ccc; background: #fff; }
+      body { color: #000; }
+    }
+  </style>
+
+  <script>
+    // Dark/light toggle with localStorage
+    (function initTheme() {
+      const saved = localStorage.getItem("theme");
+      if (saved) document.documentElement.dataset.theme = saved;
+    })();
+    function toggleTheme() {
+      const html = document.documentElement;
+      const curr = html.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      const next = curr === "dark" ? "light" : "dark";
+      html.dataset.theme = next;
+      localStorage.setItem("theme", next);
+    }
+    function copyToClipboard(text, label = "Disalin") {
+      navigator.clipboard.writeText(text).then(() => {
+        const el = document.getElementById("copy-toast");
+        if (!el) return;
+        el.textContent = label;
+        el.style.opacity = "1";
+        setTimeout(() => el.style.opacity = "0", 1000);
+      });
+    }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Nama Anda",
+    "jobTitle":"Security Engineer",
+    "url":"https://domainanda.com",
+    "sameAs":[
+      "https://www.linkedin.com/in/username",
+      "https://github.com/username"
+    ],
+    "knowsAbout":[
+      "Application Security","Penetration Testing","Threat Modeling","Cloud Security","DFIR","Vulnerability Management","Bug Bounty"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav>
+        <a href="#about">Tentang</a>
+        <a href="#skills">Keahlian</a>
+        <a href="#projects">Proyek</a>
+        <a href="#writing">Publikasi</a>
+        <a href="#certs">Sertifikasi</a>
+        <a href="#contact">Kontak</a>
+      </nav>
+      <button class="theme-toggle" onclick="toggleTheme()" aria-label="Ubah tema">Tema</button>
+    </header>
+
+    <section class="hero">
+      <div class="avatar" aria-hidden="true"></div>
+      <div>
+        <h1>Nama Anda</h1>
+        <div class="subtitle">Security Engineer — AppSec, Pentest, Cloud, Threat Modeling</div>
+        <div class="cta">
+          <a class="btn" href="mailto:anda@domain.com">Email</a>
+          <a class="btn" href="https://www.linkedin.com/in/username" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/username" target="_blank" rel="noreferrer">GitHub</a>
+          <button class="btn" onclick="copyToClipboard('PGP-FPR-XXXXXXXXXXXXXXXXXXXXXXXXXXXX', 'Fingerprint disalin')">PGP</button>
+        </div>
+      </div>
+      <div class="kpi" aria-label="Ringkasan">
+        <div class="pill">5+ thn</div>
+        <div class="pill">30+ laporan</div>
+        <div class="pill">2 CVE</div>
+      </div>
+    </section>
+
+    <hr class="sep" />
+
+    <section id="about" class="two-col">
+      <div class="left card">
+        <h3>Tentang</h3>
+        <p>Saya fokus membangun proses dan tooling untuk mencegah kerentanan sejak fase desain, melakukan pentest berulang, dan mengintegrasikan kontrol keamanan ke CI/CD. Minat khusus pada hardening layanan cloud dan threat modeling yang pragmatis.</p>
+      </div>
+      <div class="right card">
+        <h3>Fokus Saat Ini</h3>
+        <ul class="list">
+          <li>SDLC Security: review desain, SAST/DAST/IaC</li>
+          <li>Cloud posture (AWS/GCP), audit identitas</li>
+          <li>Threat modeling dan tabletop exercise</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills" class="grid">
+      <div class="card">
+        <h3>Keahlian & Tools</h3>
+        <div class="badge-row" aria-label="Keahlian">
+          <span class="badge">Threat Modeling (STRIDE, LINDDUN)</span>
+          <span class="badge">Pentest Web/API</span>
+          <span class="badge">Secure Code Review</span>
+          <span class="badge">Cloud Security (AWS/GCP)</span>
+          <span class="badge">DFIR dasar</span>
+          <span class="badge">Vuln Management</span>
+        </div>
+        <div style="height:8px"></div>
+        <div class="badge-row" aria-label="Tools">
+          <span class="badge">Burp Suite</span>
+          <span class="badge">Nmap</span>
+          <span class="badge">Semgrep</span>
+          <span class="badge">Trivy</span>
+          <span class="badge">OSINT (theHarvester, Amass)</span>
+          <span class="badge">Terraform/OPA</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="grid">
+      <div class="card">
+        <h3>Proyek Terpilih</h3>
+        <div class="project">
+          <div>
+            <a href="#" target="_blank" rel="noreferrer">Pipeline AppSec: SAST + SCA + IaC</a>
+            <div class="muted">Merancang pipeline CI/CD terpusat untuk deteksi dini kerentanan pada repos monorepo. Hasil: MTTR turun 45%.</div>
+          </div>
+          <div class="muted">2024</div>
+        </div>
+        <div class="project">
+          <div>
+            <a href="#" target="_blank" rel="noreferrer">Write-up: SSRF to metadata exfil</a>
+            <div class="muted">Eksploitasi SSRF pada layanan internal hingga akses credentials instance. Mitigasi via IMDSv2 dan egress control.</div>
+          </div>
+          <div class="muted">2023</div>
+        </div>
+        <div class="project">
+          <div>
+            <a href="#" target="_blank" rel="noreferrer">Hardening baseline untuk AWS</a>
+            <div class="muted">Guardrails: SCP, kontrol identitas, tagging, logging terpusat, serta deteksi drift.</div>
+          </div>
+          <div class="muted">2023</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="writing" class="grid">
+      <div class="card">
+        <h3>Publikasi & Talks</h3>
+        <ul class="list">
+          <li><a href="#" target="_blank" rel="noreferrer">Threat Modeling yang Praktis untuk Tim Kecil</a> — Konferensi X, 2024</li>
+          <li><a href="#" target="_blank" rel="noreferrer">Checklist Review Keamanan untuk PR</a> — Blog, 2023</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Bug Bounty & CVE</h3>
+        <ul class="list">
+          <li>Hall of Fame: Produk Y — ID-12345 (IDOR)</li>
+          <li>CVE-2023-XXXX — RCE pada paket Z (CVSS 8.8)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="certs" class="grid">
+      <div class="card">
+        <h3>Sertifikasi</h3>
+        <div class="badge-row">
+          <span class="badge">OSCP</span>
+          <span class="badge">eJPT</span>
+          <span class="badge">CC (ISC)²</span>
+          <span class="badge">AWS Security Specialty</span>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Pengalaman</h3>
+        <ul class="list">
+          <li><strong>Security Engineer</strong>, Perusahaan A — 2022–Sekarang</li>
+          <li><strong>AppSec Analyst</strong>, Perusahaan B — 2020–2022</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact" class="grid">
+      <div class="card">
+        <h3>Kontak</h3>
+        <p class="muted">Terbuka untuk kolaborasi, konsultasi AppSec, dan pentest terbatas.</p>
+        <div class="badge-row">
+          <a class="btn" href="mailto:anda@domain.com">anda@domain.com</a>
+          <a class="btn" href="/security.txt" target="_blank" rel="noreferrer">security.txt</a>
+          <button class="btn" onclick="copyToClipboard('PGP-FPR-XXXXXXXXXXXXXXXXXXXXXXXXXXXX', 'Fingerprint disalin')">Salin PGP</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="y"></span> Nama Anda</div>
+      <div id="copy-toast" style="opacity:0; transition: opacity .2s;">Disalin</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
